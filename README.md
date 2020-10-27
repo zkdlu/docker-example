@@ -10,8 +10,12 @@ ENTRYPOINT ["java", "-jar", "/app.jar"]
 ## dockerfile build
 - docker build --build-arg JAR_FILE=build/libs/*.jar -t 이미지명 .
 
-## run
+## 이미지->컨테이너
 - docker run -d -p 80:8080 --name 컨테이너명 이미지명
+
+## 실행/종료
+- docker start 컨테이너명
+- docker stop 컨테이너명
 
 ## 연결
 - docker exec -it 컨테이너명 실행할프로세스
