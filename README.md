@@ -30,3 +30,5 @@ ENTRYPOINT ["java", "-jar", "/app.jar"]
 ## Docker Hub에 push/pull
 - docker push 이미지명
 - docker pull 이미지명
+
+## Docker Compose
