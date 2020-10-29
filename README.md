@@ -16,6 +16,7 @@ ENTRYPOINT ["java", "-jar", "/app.jar"]
 ## 실행/종료
 - docker start 컨테이너명
 - docker stop 컨테이너명
+- '전부 종료 : docker stop $(docker ps -a -q)'
 
 ## 연결
 - docker exec -it 컨테이너명 실행할프로세스
