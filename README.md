@@ -7,6 +7,20 @@ COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java", "-jar", "/app.jar"]
 ```
 
+```dockerfile
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1
+COPY bin/Release/netcoreapp3.1/publish/ App/
+WORKDIR /App
+ENTRYPOINT ["dotnet", "NetCore.Docker.dll"]
+```
+
+- FROM 키워드: 정규화된 Docker 컨테이너 이미지 이름
+- COPY: 지정된 폴더를 컨테이너의 폴더에 복사
+- WORKDIR: 컨테이너 내부의 현재 디렉터리를 App으로 변경
+- ENTRYPOINT: 테이너가 실행 파일로 실행되게 컨테이너를 구성하
+
+
+
 ## dockerfile build
 - docker build --build-arg JAR_FILE=build/libs/*.jar -t 이미지명 .
 
