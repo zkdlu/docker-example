@@ -67,4 +67,26 @@ ENTRYPOINT ["dotnet", "NetCore.Docker.dll"]
 ## Docker Compose
 
 ## Docker Network
-![docker-network](./docker-network.png)
+- 컨테이너는 내부 IP를 순차적으로 할당을 하며, 컨테이너가 재시작 될 때마다 변경 될 수 있다.
+- 만약 외부와 연결해야 할 경우 호스트에 **veth(=virtual eth)** 라는  네트워크 인터페이스를 생성하고 컨테이너의 eth와 연결이 됨
+- veth 인터페이스는 사용자가 직접 생성할 필요 없이 도커엔진에 의해 자동으로 생성 됨
+- veth 인터페이스 뿜남 아니라 **docker()** 라는 브릿지도 있는데 이는 veth인터페이스와 바인딩 되어 호스트의 eth 인터페이스와 연결해줌
+<img src="docker-network.png" width="50%" height="50%">
+
+### 도커에서 제공하는 네트워크 드라이버는 **bridge, host, none, container, overlay** 가 있음
+
+  ### bridge
+  - 사용자가 정의한 브릿지를 생성해 각 컨테이너에 연결하는 네트워크 구조로 컨테이너는 연결 된 브릿지를 통해 외부와 통신할 수 있음
+  ```
+  > docker network create --driver=bridge -subnet=172.19.0.0/16 [브릿지 이름]
+  ```
+  > 도커 내부에서 172.19.0.~ 대역대를 사용할 수 있는 네트워크 생성
+  > docker run 또는 docker create 명령어에서 --net 옵션으로 커스텀 브릿지를 사용할 수 있음
+  ```
+  > docker run -i -t --name my_container --net my_bridge ubuntu:14.04
+  ```
+  
+  ### host
+  - 호스트의 네트워크 환경을 그대로 사용 함
+  
+  
