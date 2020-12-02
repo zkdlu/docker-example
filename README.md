@@ -94,6 +94,5 @@ ENTRYPOINT ["dotnet", "NetCore.Docker.dll"]
  ### 오류
  - WSL2 환경에서 사용하고 있었는데 Docker가 없데이트 되고부터는 docker daemon이 실행중이 아니라고 작동 되지 않았다.
  - ubuntu 지우고 다시 설치하니까 되더라...
- - 재설치 시 
- - > root passwd 초기화 하기 위해 기본 로그인을 root로 변경 해야 함. **ubuntu1804.exe config --default-user root** 이후 리눅스 접속후 passwd
- - > docker를 sudo 없이 사용하기 위해 유저를 도커 그룹에 추가해준다.  **> sudo usermod -aG docker $USER**
+ - root passwd 초기화 하기 위해 기본 로그인을 root로 변경 해야 함. **ubuntu1804.exe config --default-user root** 이후 리눅스 접속후 passwd
+ - docker를 sudo 없이 사용하기 위해 유저를 도커 그룹에 추가해준다.  **> sudo usermod -aG docker $USER**
