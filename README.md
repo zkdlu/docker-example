@@ -1,3 +1,13 @@
+# 설치
+```bash
+curl -fsSL https://get.docker.com/ | sudo sh
+```
+# sudo 없이 사용하기
+```bash
+sudo usermod -aG docker $USER # 현재 접속중인 사용자에게 권한주기
+sudo usermod -aG docker your-user # your-user 사용자에게 권한주기
+```
+
 # Docker example
 
 ```dockerfile
