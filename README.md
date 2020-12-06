@@ -64,6 +64,9 @@ ENTRYPOINT ["dotnet", "NetCore.Docker.dll"]
 - docker exec -it 컨테이너명 실행할프로세스
 - docker attach 컨테이너명
 
+## 이미지 목록
+- docker images
+
 ## 컨테이너 목록
 - docker ps -a
 
