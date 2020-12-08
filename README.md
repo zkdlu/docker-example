@@ -34,6 +34,14 @@ ENTRYPOINT ["dotnet", "NetCore.Docker.dll"]
 ## dockerfile build
 - docker build --build-arg JAR_FILE=build/libs/*.jar -t 이미지명 .
 
+| 옵션  | 설명                                                        |
+| ----- | ---------------------------------------------------------- |
+| --force-rm=false  | 이미지 생성에 실패했을 때도 임시 컨테이너를 삭제                    |
+| -no-cache=false    | 이전 빌드에서 생성된 캐ㅣ를 사용하지 않음. 도커는 이미지 생성 시간을 줄이기 위해 각 과정을 캐시함. |
+| -q, --quiet=false |  RUN의 실행 출력 결과를 표시하지 않음 |
+| --rm=true | 이미지 생성에 성공했을 때 임시 컨테이너를 삭제 |
+| -t, --tag="" | 저잣오 이름, 이미지 이름, 태그를 설정 <저장소 이름>/<이미지 이름>:<태그> |
+
 ## 이미지->컨테이너
 - docker run -d -p 80:8080 --name 컨테이너명 이미지명
 
