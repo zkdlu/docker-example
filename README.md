@@ -92,6 +92,7 @@ ENTRYPOINT ["dotnet", "NetCore.Docker.dll"]
 - 만약 외부와 연결해야 할 경우 호스트에 **veth(=virtual eth)** 라는  네트워크 인터페이스를 생성하고 컨테이너의 eth와 연결이 됨
 - veth 인터페이스는 사용자가 직접 생성할 필요 없이 도커엔진에 의해 자동으로 생성 됨
 - veth 인터페이스 뿜남 아니라 **docker()** 라는 브릿지도 있는데 이는 veth인터페이스와 바인딩 되어 호스트의 eth 인터페이스와 연결해줌
+- docker run --net=NETWORK_TYPE .....
 <img src="docker-network.png" width="50%" height="50%">
 
 ### 도커에서 제공하는 네트워크 드라이버는 **bridge, host, none, container, overlay** 가 있음
@@ -109,6 +110,23 @@ ENTRYPOINT ["dotnet", "NetCore.Docker.dll"]
   
   ### host
   - 호스트의 네트워크 환경을 그대로 사용 함
+
+
+네트워크 정보 보기
+```
+> docker network inspect [네트워크 이름]
+```
+
+> 기본적으로 생성되는 컨테이너는 bridge임
+
+> 컨테이너를 생성하고 bridge 네트워크 정보를 보니 내가 만든 컨테이너 목록이 들어 있었음.
+
+> 실행 될 떄마다 컨테이너에 할당 되는 ip가 변경 됨 -> 고정하는 법 알아야 할 듯
+
+> docker exec -it {컨테이너} route 로 확인하면 게이트웨이인 docker0으로 나가는걸 확인 할 수 있음
+
+
+
   
   
  
