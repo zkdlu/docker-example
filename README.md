@@ -122,6 +122,7 @@ ENTRYPOINT ["dotnet", "NetCore.Docker.dll"]
 > 컨테이너를 생성하고 bridge 네트워크 정보를 보니 내가 만든 컨테이너 목록이 들어 있었음.
 
 > 실행 될 떄마다 컨테이너에 할당 되는 ip가 변경 됨 -> 고정하는 법 알아야 할 듯
+> - **docker run --net {네트워크} --ip {ip} {container}**
 
 > docker exec -it {컨테이너} route 로 확인하면 게이트웨이인 docker0으로 나가는걸 확인 할 수 있음
 
