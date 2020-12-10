@@ -78,6 +78,9 @@ ENTRYPOINT ["dotnet", "NetCore.Docker.dll"]
 ## 컨테이너 목록
 - docker ps -a
 
+## 컨테이너 삭제
+- docker rm 컨테이너명
+
 ## Docker 로그인
 - docker login -U 
 
