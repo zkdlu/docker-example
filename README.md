@@ -24,6 +24,19 @@ WORKDIR /App
 ENTRYPOINT ["dotnet", "NetCore.Docker.dll"]
 ```
 
+```dockerfile
+FROM openjdk:11-jdk-slim as builder
+COPY . .
+WORKDIR /
+RUN chmod +x ./gradlew
+RUN ./gradlew bootjar
+
+FROM openjdk:11-jre-slim
+COPY --from=builder build/libs/*.jar app.jar
+ENTRYPOINT ["java", "-jar", "/app.jar"]
+```
+> 통으로 복사해서 gradle빌드 하는 방법
+
 - FROM 키워드: 정규화된 Docker 컨테이너 이미지 이름
 - COPY: 지정된 폴더를 컨테이너의 폴더에 복사
 - WORKDIR: 컨테이너 내부의 현재 디렉터리를 App으로 변경
