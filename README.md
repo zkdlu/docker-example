@@ -81,6 +81,10 @@ ENTRYPOINT ["java", "-jar", "/app.jar"]
 - docker stop 컨테이너명
 -  `전부 종료 : docker stop $(docker ps -a -q)`
 
+## 로그 확인
+- docker logs -f 컨테이너명
+> -f : 실시간 로그 스트림
+
 ## 연결
 - docker exec -it 컨테이너명 실행할프로세스
 - docker attach 컨테이너명
