@@ -106,7 +106,29 @@ ENTRYPOINT ["java", "-jar", "/app.jar"]
 - docker pull 이미지명
 
 ## Docker Compose
+- 도커의 실행 옵션을 미리 적어둔 문서
 - 컨테이너를 여러개 만들어 실행하고 관리해야하는걸 한번에 해줌
+```dockerfile
+version: '3'
+services:
+  nginx_container:
+    image: nginx:latest
+    ports:
+      - "80:80"
+  php_container:
+    image: php:7.3-fpm
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./source:/source
+~                          
+```
+> 예제
+```bash
+docker-compose up
+docker-compose up -d
+docker-compose down
+```
 - 참고용: https://www.44bits.io/ko/post/almost-perfect-development-environment-with-docker-and-docker-compose#%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88-%EC%8B%A4%ED%96%89
 
 ## Docker Network
