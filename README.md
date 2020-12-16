@@ -128,6 +128,7 @@ services:
   - version : 버전 정보
   - services : 실행할 컨테이너 목록
     - [service] : 실행할 서비스 이름
+      - container_name: 만들어질 컨테이너 이름
       - image : 도커 이미지
       - volumes : symboli-link같은거인듯
         - -./path:/in-container-path
