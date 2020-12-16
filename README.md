@@ -123,7 +123,23 @@ services:
       - ./source:/source
 ~                          
 ```
-> 예제
+
+정리
+  - version : 버전 정보
+  - services : 실행할 컨테이너 목록
+    - [service] : 실행할 서비스 이름
+      - image : 도커 이미지
+      - volumes : symboli-link같은거인듯
+        - -./path:/in-container-path
+      - environment : 환경변수
+        - -USER=zkdlu
+      - build : 직접 이미지를 빌드할 경우
+        - context: . : docker build를 실행할 디렉토리 경로
+        - dockerfile: ./path/dockerfile-dev : 도커파일
+      - ports: 포트 
+        - -"8000:8000"
+      - command : 
+      
 ```bash
 docker-compose up
 docker-compose up -d
