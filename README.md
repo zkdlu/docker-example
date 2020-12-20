@@ -108,6 +108,25 @@ ENTRYPOINT ["java", "-jar", "/app.jar"]
 ## Docker Compose
 - 도커의 실행 옵션을 미리 적어둔 문서
 - 컨테이너를 여러개 만들어 실행하고 관리해야하는걸 한번에 해줌
+
+### 설치법
+1. 설치
+```bash
+sudo curl -L https://github.com/docker/compose/releases/download/1.21.0/docker-compose-`uname -s`-`uname -m` | sudo tee /usr/local/bin/docker-compose > /dev/null
+```
+2. chmod 변경
+```bash
+sudo chmod +x /usr/local/bin/docker-compose
+```
+3. 심볼릭 링크 연결
+```bash
+sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+```
+4. 확인
+```bash
+docker-compose --version
+```
+
 ```dockerfile
 version: '3'
 services:
