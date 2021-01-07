@@ -75,6 +75,9 @@ ENTRYPOINT ["java", "-jar", "/app.jar"]
 | –link | 컨테이너 연결 [컨테이너명:별칭]                              |
 | –cap-add | cgroups얻는 것                                          |
 
+## 컨테이너->호스트 or 호스트->컨테이너 복사
+- docker cp <host path> <container>:<contianer path>
+- docker cp <container>:<container path> <host path>
 
 ## 실행/종료
 - docker start 컨테이너명
