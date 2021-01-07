@@ -156,9 +156,11 @@ services:
       - build : 직접 이미지를 빌드할 경우
         - context: . : docker build를 실행할 디렉토리 경로
         - dockerfile: ./path/dockerfile-dev : 도커파일
+      - depends_on: 서비스간에 의존 관계를 형성 (다른 서비스가 먼저 동작해야 할 때)
+        - other-service
       - ports: 포트 
         - -"8000:8000"
-      - command : 
+      - command : 서비스가 올라 올 때 Dockerfile의 CMD를 무시하고 실행할 명령어
       
 ```bash
 docker-compose up
